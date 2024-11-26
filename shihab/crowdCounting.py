@@ -117,8 +117,8 @@ def count_people_on_beach(image_path, background_path, csv_path):
     blurred = np.uint8(np.clip(sobel, 0, 255))
 
     # Apply threshold to create binary image
-    _, thresh = cv2.threshold(blurred, 40, 255, cv2.THRESH_BINARY)
-    # thresh = cv2.Canny(blurred, threshold1=100, threshold2=200)
+    _, thresh = cv2.threshold(blurred, 39, 255, cv2.THRESH_BINARY)
+
     # Apply morphological operations to remove noise and connect components
     kernel = np.ones((3, 3), np.uint8)
     thresh = cv2.morphologyEx(thresh, cv2.MORPH_OPEN, kernel)
@@ -128,8 +128,8 @@ def count_people_on_beach(image_path, background_path, csv_path):
     contours, _ = cv2.findContours(thresh, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
     
     # Filter contours based on area, aspect ratio, and maximum width
-    min_area = 10  # Adjust this value based on your image scale
-    max_width = 60  # Maximum allowed width for a single person contour
+    min_area = 5  # Adjust this value based on your image scale
+    max_width = 50  # Maximum allowed width for a single person contour
     filtered_contours = []
     
     for cnt in contours:
@@ -198,8 +198,8 @@ def count_people_on_beach(image_path, background_path, csv_path):
 def main():
     # Example usage
     background_path = "raw_images/background/1660366800.jpg"
-    # image_path = "raw_images/1660402800.jpg"
-    image_path = "raw_images/1660388400.jpg"
+    image_path = "raw_images/1660402800.jpg"
+    # image_path = "raw_images/1660388400.jpg"
     # image_path = "raw_images/1660392000.jpg"
 
     csv_path = "labels.csv"
