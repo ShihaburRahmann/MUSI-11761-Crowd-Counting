@@ -9,7 +9,8 @@ from utils import (
     ROI_mask,
     load_labels,
     non_maximum_suppression_proximity,
-    calculate_metrics
+    calculate_metrics,
+    analyze_metrics
 )
 
 def count_people_on_beach(image_path, background_path, csv_path):
@@ -176,11 +177,11 @@ def main():
             img = os.path.join(IMAGES_FOLDER_PATH, filename)
             try:
                 analysis = count_people_on_beach(img, BACKGROUND_IMAGE_PATH, GROUND_TRUTH_PATH)
-                print("\nDetailed Analysis:")
-                print(f"Number of detected contours: {analysis['num_contours']}")
                 print(f"Final estimated count: {analysis['estimated_count']}")
             except Exception as e:
                 print(f"Error processing images: {str(e)}")
+    
+    analyze_metrics(METRICS_OUTPUT_PATH)
 
 if __name__ == "__main__":
     main()
