@@ -118,10 +118,10 @@ def count_people_on_beach(image_path, background_path, csv_path):
     print(f"\nMetrics appended to {METRICS_OUTPUT_PATH}")
 
     # Print performance metrics
-    print("Precision", precision)
-    print("Recall", recall)
-    print("F1 Score", f1_score)
-    print("RMSE", rmse)
+    print("Precision", round(precision, 4))
+    print("Recall", round(recall, 4))
+    print("F1 Score", round(f1_score, 4))
+    print("RMSE", round(rmse, 4))
 
     # Visualization of ground truth
     original_img = img.copy()
