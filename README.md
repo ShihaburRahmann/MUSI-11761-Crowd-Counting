@@ -1,7 +1,7 @@
 
 # Crowd Counting System
 ## Authors:
-- Aina T
+- Aina Maria Tur Serrano
 - Shihabur Rahman Samrat
 
 A computer vision system for counting people in beach images using traditional methods instead of Machine Learning or Deep Learning. This project is part of our course "Image and Video Analysis" for the MUSI master's programme at UIB.
