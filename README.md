@@ -15,9 +15,13 @@ pip install -r requirements.txt
 
 ## Project Structure
 
-- `params.py`: Contains all configurable parameters (thresholds, paths, etc.)
-- `utils.py`: Contains utility functions (IoU calculation, metrics, etc.)
-- `crowd_counting.py`: Main script for crowd detection and counting
+- `dataset/`: Contains the raw images, background image, as well as the annotated ground truth.
+- `code/`: Contains all the necessary code to run the algorithm.
+   - `params.py`: Contains all configurable parameters (thresholds, paths, etc.)
+   - `utils.py`: Contains utility functions (IoU calculation, metrics, etc.)
+   - `crowd_counting.py`: Main script for crowd detection and counting.
+- `results/`: Contains the CSV file with all the metrics of each image after running the code.
+- `code_testing/`: Contains files used for testing by us before developing the main algorithm. This can be ignored.
 
 ## Usage
 
