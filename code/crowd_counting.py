@@ -172,7 +172,7 @@ def main():
 
     for filename in os.listdir(IMAGES_FOLDER_PATH):
         if filename.endswith(('.png', '.jpg', '.jpeg')):
-            img = os.path.join(IMAGES_FOLDER_PATH, filename)
+            img = os.path.join(IMAGES_FOLDER_PATH, filename).replace("\\", "/")
             try:
                 analysis = count_people_on_beach(img, BACKGROUND_IMAGE_PATH, GROUND_TRUTH_PATH)
                 print(f"Final estimated count: {analysis['estimated_count']}")
