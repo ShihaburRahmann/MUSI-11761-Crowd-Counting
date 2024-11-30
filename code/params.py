@@ -25,4 +25,4 @@ VAL_DISTANCE_THRESHOLD = 30     # Detected points within this range of original 
 DETECTION_CIRCLE_RADIUS = 5      # Radius of circles drawn for detections
 DETECTION_COLOR = (0, 255, 0)    # Green color for detected points
 GROUND_TRUTH_COLOR = (255, 0, 0) # Blue color for ground truth points
-PLOT_FIGURE_SIZE = (20, 10)      # Size of the output visualization
+PLOT_FIGURE_SIZE = (16, 4)      # Size of the output visualization

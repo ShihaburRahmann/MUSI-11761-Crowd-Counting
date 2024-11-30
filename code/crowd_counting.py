@@ -132,8 +132,11 @@ def count_people_on_beach(image_path, background_path, csv_path):
     # Display results
     plt.figure(figsize=PLOT_FIGURE_SIZE)
     
+    plt.figtext(0.5, 0.98, f"Image: {image_name}", ha="center", va="top", fontsize=12, bbox=dict(facecolor='white', alpha=0.5, edgecolor='black', boxstyle='round,pad=0.5'))
+
+    # Create subplots
     plt.subplot(131)
-    plt.title('Difference Detection')
+    plt.title('Processed Binary Image')
     plt.imshow(thresh, cmap='gray')
     plt.axis('off')
 
@@ -147,6 +150,7 @@ def count_people_on_beach(image_path, background_path, csv_path):
     plt.imshow(cv2.cvtColor(original_img, cv2.COLOR_BGR2RGB))
     plt.axis('off')
 
+    # Adjust layout and show the figure
     plt.tight_layout()
     plt.show()
 
@@ -162,12 +166,6 @@ def main():
     """
     Main execution function for crowd counting system.
     """
-    # try:
-    #     analysis = count_people_on_beach(image_path, background_path, csv_path)
-    #     print(f"Final estimated count: {analysis['estimated_count']}")
-    # except Exception as e:
-    #     print(f"Error processing images: {str(e)}")
-
     if os.path.exists(METRICS_OUTPUT_PATH):
         os.remove(METRICS_OUTPUT_PATH)
         print(f"Deleted existing metrics file: {METRICS_OUTPUT_PATH}")
@@ -180,7 +178,7 @@ def main():
                 print(f"Final estimated count: {analysis['estimated_count']}")
             except Exception as e:
                 print(f"Error processing images: {str(e)}")
-    
+        
     analyze_metrics(METRICS_OUTPUT_PATH)
 
 if __name__ == "__main__":
